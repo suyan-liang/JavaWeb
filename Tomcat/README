@@ -1,0 +1,42 @@
+Tomcat
+
+1.  JavaWeb是指所有通过Java语言编写的可以被浏览器访问的程序的总称
+
+2.  Web资源的分类
+    a.  静态资源 html,css,js,mp4,jpg等
+    b.  动态资源 jsp页面，Servlet程序
+3.  Tomcat的WebApps文件夹专门用来放Web工程，一个文件夹一个工程
+    work是其工作时的目录，用来存放运行时jsp翻译成的Servlet源码和Session钝化的目录
+4.  使用前要打开Tomcat服务器
+5.  在Tomcat下部署web工程的方法
+    a.  把工程拷贝到webapps下即可
+    b.  在Tomcat 10.0\conf\Catalina\localhost写一个配置文件，代表一个工程;而后重启Tomcat服务器
+6.  访问Tomcat下的web工程
+    对应5中的
+    第一种方式
+    http://localhost:8080/工程名/...文件路径
+    默认是在webapps目录下的
+    eg.http://localhost:8080/testPro/ali.jpg
+
+    第二种方式
+    其中test_2是配置文件的名字
+    过程:先访问配置文件,再到达配置文件中的docBase下，再访问就行了
+    http://localhost:8080/test_2/ali.jpg
+
+7.  直接在目录打开html文件和通过网址打开html文件的区别见difference.png
+8.  http://ip:8080/ 如果不写工程名，默认访问ROOT工程,http://ip:8080/工程名/  如果不写文件名，默认访问index.html
+9.  在idea配置tomcat，在设置中找Build,Ex...,xxxxx下面ApplicationServers设置就行，太高版本和jdk不匹配的话会异常，用低版本的Tomcat或者高版本的jdk就行
+10. https://blog.csdn.net/weixin_39085109/article/details/80289260  安装并配置Tomcat方法
+11. 在idea中创建Web工程
+    右击创建Module选择Java Enterprise，选择服务器，勾选WebApplication，其他默认
+12. 介绍Web工程的目录
+    a.  web  存放web工程的资源文件
+    b.  src  存放源代码
+    c.  WEB-INF 受服务器保护的目录，浏览器无法直接访问到它
+    d.  web.xml 是整个动态web工程的配置文件，可以配置很多组件比如Servlet...等等
+    e.  lib  存放第三方的jar包
+13. Tomcat在idea中启动部署，上面的栏靠右边有个Tomcat服务器，edit
+    a.  每个Web工程都会有一个Tomcat实例，可以修改实例的名字
+    b.  Deployment中是要用的Web工程，默认就是本工程，可以添加或者删除，一般把工程路径那个application context改成和工程名一样的
+    c.  Server中URL是启动Tomcat服务器时默认打开的访问地址
+    d.  修改后记得重启服务器和重启idea，woc我就是在这被坑了，一定要重启idea
