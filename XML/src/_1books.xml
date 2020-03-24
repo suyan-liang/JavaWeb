@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+<?xml version="1.0" encoding="utf-8" ?> 是xml文档的必要声明
+
+在xml文件里可以自定义标签
+
+-->
+<books>
+    <book id="123">
+        <name>C++</name>
+        <price>17</price>
+    </book >
+    <book id="234">
+        <name>java</name>
+        <price>18</price>
+    </book>
+    <book id="345">
+        <name>C</name>
+        <price>19</price>
+    </book>
+</books>
