@@ -3,4 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+
+
+    <!-- servlet标签给Tomcat配置servlet程序-->
+<servlet>
+    <!--给servlet程序起的别名-->
+    <servlet-name>HelloServlet</servlet-name>
+    <!--servlet程序的类的全名，有包的时候特别注意是全名-->
+    <servlet-class>HelloServlet</servlet-class>
+</servlet>
+    <!--servlet mapping 给servlet程序配置访问地址-->
+<servlet-mapping>
+    <!--此处name的作用是告诉服务器当前配置的地址给哪个Servlet程序使用，要和上面的name一致-->
+    <servlet-name>HelloServlet</servlet-name>
+    <!--
+    1.  此处地址 /代表工程路径
+    2.  这里配置的路径是虚拟路径（访问路径），访问这个路径时会触发servlet，可以自定义
+    3.  这个路径可以理解为资源路径（动态资源嘛）
+    4.  配置的路径一定要以/开头
+    -->
+    <url-pattern>/hello</url-pattern>
+</servlet-mapping>
+
 </web-app>

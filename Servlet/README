@@ -1,0 +1,28 @@
+Servlet
+
+1.  Servlet是JavaWeb三大组件之一，是一个接口。三大组件分别是Servlet程序,Filter过滤器,Listener监听器
+2.  Servlet是运行在服务端的一个小程序，可以接受客户端发送的请求并相应数据给客户端
+3.  手动编写一个Servlet程序的步骤
+    a.  编写一个类实现Servlet接口
+    b.  实现service方法，处理请求并相应数据
+    c.  在web.xml文件中配置Servlet程序访问地址
+
+    访问过程见process.png
+4.  Servlet生命周期
+    a.  执行Servlet构造器方法
+    b.  执行init方法
+        a,b是在刚启动Web工程的时候做的
+    c.  执行service方法
+        c是每次访问Servlet时做的
+    d.  执行destroy销毁方法
+        d是结束web工程时做的
+5.  可以通过表单访问服务器
+    <form action="http://localhost:8080/Servlet/hello" method="get">
+        <input type="submit" value="提交">
+    </form>
+6.  获取请求方式
+    ServletRequest有一个子接口HttpServletRequest有getMethod方法
+
+    HttpServletRequest hsr= (HttpServletRequest) servletRequest;
+    String method=hsr.getMethod();
+7.
