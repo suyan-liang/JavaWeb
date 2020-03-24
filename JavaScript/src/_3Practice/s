@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻字体大中小</title>
+    <script type="text/javascript">
+        function change(font_size) {
+            var div_cnode = document.getElementById("news");
+            var nodes = div_cnode.getElementsByTagName("p");
+            for (var i = 0; i < nodes.length; i++) {
+                nodes[i].style.fontSize = font_size + "px";
+            }
+        }
+    </script>
+    <style>
+        #news{
+            border: springgreen solid 5px;
+            width:600px;
+            align-self: center;
+        }
+        a:hover{
+            color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+<h1>这是新闻标题</h1>
+<hr/>
+<!--
+
+!!!!!!!!取消超链接的默认点击效果，设置新的事件响应
+
+-->
+<a href="javascript:void(0)" onclick="change(30)">大字体</a>
+<a href="javascript:void(0)" onclick="change(20)">中字体 </a>
+<a href="javascript:void(0)" onclick="change(10)">小字体</a>
+<div id="news">
+    <p id="text1">
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+    </p>
+    <p id="text2">
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+    </p>
+    <p id="text3">
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+        这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容这是新闻内容
+    </p>
+</div>
+</body>
+</html>
