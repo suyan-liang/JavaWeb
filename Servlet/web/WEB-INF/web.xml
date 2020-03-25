@@ -4,7 +4,18 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!--这些参数对整个web工程有效，就和全局变量差不多-->
+<context-param>
+    <param-name>name</param-name>
+    <param-value>I write de Servlet</param-value>
+</context-param>
+    <context-param>
+    <param-name>time</param-name>
+    <param-value>2020-03-25</param-value>
+</context-param>
 
+
+<!--四个东西需要配置  -->
 
     <!-- servlet标签给Tomcat配置servlet程序-->
 <servlet>
@@ -12,6 +23,15 @@
     <servlet-name>HelloServlet</servlet-name>
     <!--servlet程序的类的全名，有包的时候特别注意是全名-->
     <servlet-class>HelloServlet</servlet-class>
+    <!--初始参数-->
+    <init-param>
+        <param-name>username</param-name>
+        <param-value>root</param-value>
+    </init-param>
+    <init-param>
+        <param-name>password</param-name>
+        <param-value>hello,mysql</param-value>
+    </init-param>
 </servlet>
     <!--servlet mapping 给servlet程序配置访问地址-->
 <servlet-mapping>
@@ -25,5 +45,31 @@
     -->
     <url-pattern>/hello</url-pattern>
 </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>HelloServlet2</servlet-name>
+        <servlet-class>HelloServlet2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>IdeaServlet</servlet-name>
+        <servlet-class>IdeaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>ContextServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/context</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>IdeaServlet</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet2</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
 
 </web-app>

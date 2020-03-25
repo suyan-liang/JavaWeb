@@ -1,6 +1,7 @@
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Author:liang;
@@ -18,6 +19,18 @@ public class HelloServlet implements Servlet {
     @Override
     public void init(ServletConfig servletConfig) throws ServletException {
         System.out.println("2.init方法");
+
+        //1.    获取类的别名
+        System.out.println("类的别名:"+servletConfig.getServletName());
+
+        //2.    获取web.xml中的初始参数
+        String username=servletConfig.getInitParameter("username");
+        String password=servletConfig.getInitParameter("password");
+        System.out.println("初始参数 username="+username+"...password="+password);
+
+        //3.    获取ServletContext对象
+        ServletContext servletContext = servletConfig.getServletContext();
+        System.out.println(servletContext);
     }
 
     @Override

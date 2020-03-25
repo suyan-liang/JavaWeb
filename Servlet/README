@@ -2,7 +2,7 @@ Servlet
 
 1.  Servlet是JavaWeb三大组件之一，是一个接口。三大组件分别是Servlet程序,Filter过滤器,Listener监听器
 2.  Servlet是运行在服务端的一个小程序，可以接受客户端发送的请求并相应数据给客户端
-3.  手动编写一个Servlet程序的步骤
+3.  手动编写一个Servlet程序的步骤，但开发中一般通过继承HttpServlet来编写Servlet程序，见7
     a.  编写一个类实现Servlet接口
     b.  实现service方法，处理请求并相应数据
     c.  在web.xml文件中配置Servlet程序访问地址
@@ -20,9 +20,36 @@ Servlet
     <form action="http://localhost:8080/Servlet/hello" method="get">
         <input type="submit" value="提交">
     </form>
-6.  获取请求方式
+6.  获取请求方式 get or post
     ServletRequest有一个子接口HttpServletRequest有getMethod方法
 
     HttpServletRequest hsr= (HttpServletRequest) servletRequest;
     String method=hsr.getMethod();
-7.
+7.  在实际开发中,一般通过继承HttpServlet来编写Servlet程序
+    a.  编写一个类去继承HttpServlet
+    b.  根据业务的需要去编写doGet和doPost或者都编写
+    c.  去web.xml配置
+8.  idea中右击new 有create new Servlet，把下面的√去掉，可以快捷创建
+9.  Servlet的继承体系，见Servlet/Servlet_System.png
+10. ServletConfig类，Servlet程序的配置信息类,每个Servlet程序创建时都有一个对应的ServletConfig类
+    三大作用
+    a.  获取类的别名  class-name
+    b.  获取web.xml中初始化参数 init-param,注意这个东西是在Servlet标签里面的，每个Servlet有一个
+    c.  获取ServletContext对象
+11. ServletContext类
+
+    介绍
+    a.  一个接口，代表Servlet上下文对象
+    b.  一个web工程只有一个
+    c.  是域对象，能存取数据   setAttribute(),getAttribute(),removeAttribute()，对整个web工程有效
+    d.  通过getServletConfig().getServletContext()或者直接getServletContext()得到
+    e.  在web工程停止的时候销毁，在创建的时候创建
+
+
+    作用
+    a.  获取context-param(对整个web工程都生效的参数),注意不能获取init-param(这个只能是ServletConfig类才能获取,互不干涉)
+    b.  获取工程路径
+    c.  获取工程部署后在服务器硬盘上的绝对路径 好像就是一个工具
+
+
+12.
